@@ -20,7 +20,7 @@
     "serve": "^11.0.0"
   },
   "scripts": {
-    "start": "serve sites/",
+    "start": "serve site/",
     "restart": "serve dist/"
   }
 }
