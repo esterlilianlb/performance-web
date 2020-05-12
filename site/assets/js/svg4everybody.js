@@ -4,10 +4,10 @@ function embed(svg, target) {
 	// if the target exists
 	if (target) {
 		// create a document fragment to hold the contents of the target
-		var fragment = document.createDocumentFragment();
+		const fragment = document.createDocumentFragment();
 
 		// cache the closest matching viewBox
-		var viewBox = !svg.getAttribute('viewBox') && target.getAttribute('viewBox');
+		const viewBox = !svg.getAttribute('viewBox') && target.getAttribute('viewBox');
 
 		// conditionally set the viewBox on the svg
 		if (viewBox) {
@@ -15,7 +15,7 @@ function embed(svg, target) {
 		}
 
 		// clone the target
-		var clone = target.cloneNode(true);
+		const clone = target.cloneNode(true);
 
 		// copy the contents of the clone into the fragment
 		while (clone.childNodes.length) {
@@ -33,7 +33,7 @@ function loadreadystatechange(xhr) {
 		// if the request is ready
 		if (xhr.readyState === 4) {
 			// get the cached html document
-			var cachedDocument = xhr._cachedDocument;
+			const cachedDocument = xhr._cachedDocument;
 
 			// ensure the cached html document based on the xhr response
 			if (!cachedDocument) {
@@ -47,7 +47,7 @@ function loadreadystatechange(xhr) {
 			// clear the xhr embeds list and embed each item
 			xhr._embeds.splice(0).map(function (item) {
 				// get the cached target
-				var target = xhr._cachedTarget[item.id];
+				const target = xhr._cachedTarget[item.id];
 
 				// ensure the cached target
 				if (!target) {
@@ -65,11 +65,11 @@ function loadreadystatechange(xhr) {
 }
 
 function svg4everybody(rawopts) {
-	var opts = Object(rawopts);
+	const opts = Object(rawopts);
 
-	// create legacy support variables
-	var nosvg;
-	var fallback;
+	// create legacy support constiables
+	const nosvg;
+	const fallback;
 
 	// if running with legacy support
 	if (LEGACY_SUPPORT) {
@@ -89,11 +89,11 @@ function svg4everybody(rawopts) {
 	}
 
 	// set whether the polyfill will be activated or not
-	var polyfill;
-	var olderIEUA = /\bMSIE [1-8]\.0\b/;
-	var newerIEUA = /\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/;
-	var webkitUA = /\bAppleWebKit\/(\d+)\b/;
-	var olderEdgeUA = /\bEdge\/12\.(\d+)\b/;
+	const polyfill;
+	const olderIEUA = /\bMSIE [1-8]\.0\b/;
+	const newerIEUA = /\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/;
+	const webkitUA = /\bAppleWebKit\/(\d+)\b/;
+	const olderEdgeUA = /\bEdge\/12\.(\d+)\b/;
 
 	if ('polyfill' in opts) {
 		polyfill = opts.polyfill;
@@ -104,33 +104,33 @@ function svg4everybody(rawopts) {
 	}
 
 	// create xhr requests object
-	var requests = {};
+	const requests = {};
 
 	// use request animation frame or a timeout to search the dom for svgs
-	var requestAnimationFrame = window.requestAnimationFrame || setTimeout;
+	const requestAnimationFrame = window.requestAnimationFrame || setTimeout;
 
 	// get a live collection of use elements on the page
-	var uses = document.getElementsByTagName('use');
+	const uses = document.getElementsByTagName('use');
 
 	function oninterval() {
 		// get the cached <use> index
-		var index = 0;
+		const index = 0;
 
 		// while the index exists in the live <use> collection
 		while (index < uses.length) {
 			// get the current <use>
-			var use = uses[index];
+			const use = uses[index];
 
 			// get the current <svg>
-			var svg = use.parentNode;
+			const svg = use.parentNode;
 
 			if (svg && /svg/i.test(svg.nodeName)) {
-				var src = use.getAttribute('xlink:href');
+				const src = use.getAttribute('xlink:href');
 
 				// if running with legacy support
 				if (LEGACY_SUPPORT && nosvg) {
 					// create a new fallback image
-					var img = document.createElement('img');
+					const img = document.createElement('img');
 
 					// force display in older IE
 					img.style.cssText = 'display:inline-block;height:100%;width:100%';
@@ -150,14 +150,14 @@ function svg4everybody(rawopts) {
 						svg.removeChild(use);
 
 						// parse the src and get the url and id
-						var srcSplit = src.split('#');
-						var url = srcSplit.shift();
-						var id = srcSplit.join('#');
+						const srcSplit = src.split('#');
+						const url = srcSplit.shift();
+						const id = srcSplit.join('#');
 
 						// if the link is external
 						if (url.length) {
 							// get the cached xhr request
-							var xhr = requests[url];
+							const xhr = requests[url];
 
 							// ensure the xhr request exists
 							if (!xhr) {
