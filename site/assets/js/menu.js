@@ -1,9 +1,9 @@
 window.addEventListener('load', function() {
-	const titulo = document.querySelector('.header-menu-titulo');
-	const menu = document.querySelector('.header-menu');
+	var titulo = document.querySelector('.header-menu-titulo');
+	var menu = document.querySelector('.header-menu');
 
 	if (titulo) {
-		titulo.onclick = () => {
+		titulo.onclick = function() {
 			if (menu.hasAttribute('data-ativo')) {
 				menu.removeAttribute('data-ativo');
 			} else {

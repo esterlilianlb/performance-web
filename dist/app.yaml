@@ -2,6 +2,7 @@
 
 runtime: php55
 api_version: 1
+version: web
 
 handlers:
   - url: /
