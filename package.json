@@ -1,7 +1,7 @@
 {
   "name": "curso-alura-site",
   "version": "0.0.1",
-  "author": "Sérgio Lopes",
+  "author": "Ester Benitah",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-if": "^2.0.0",
