@@ -1,5 +1,5 @@
 function suportaTransform() {
-	const el = document.createElement('div');
+	var el = document.createElement('div');
 	return el.style['transform'] !== undefined || el.style['WebkitTransform'] !== undefined;
 }
 

@@ -1,10 +1,10 @@
 window.addEventListener('load', function() {
-	const newsletterForm = document.querySelector('.footer-newsletter-form');
+	var newsletterForm = document.querySelector('.footer-newsletter-form');
 	newsletterForm.onsubmit = valida;
 
 	function valida() {
-		const isValid = true;
-		const inputEmail = document.querySelector('.footer-newsletter-input');
+		var isValid = true;
+		var inputEmail = document.querySelector('.footer-newsletter-input');
 		isValid = validaEmail(inputEmail.value);
 
 		if(!isValid) {
@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 	}
 
 	function validaEmail(email) {
-			const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			return re.test(email);
 	}
 

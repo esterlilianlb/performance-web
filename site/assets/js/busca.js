@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
-	const botaoBusca = document.querySelector('.header-busca');
-	const body = document.body;
-	const navegacaoForm = document.querySelector('.header-navegacao-form');
+	var botaoBusca = document.querySelector('.header-busca');
+	var body = document.body;
+	var navegacaoForm = document.querySelector('.header-navegacao-form');
 
 	if (botaoBusca && "classList" in document.documentElement) {	
 
